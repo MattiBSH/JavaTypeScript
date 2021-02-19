@@ -23,10 +23,23 @@ function makeCrypt(values){
 
 
 //a done never touching again wtf
+//console.log(makeSkeleton());
 
 //b starts here
-const myPromise=new Promise(function makeSecureRandom(size){
 
+const myPromise = (size) => new Promise(function (resolve, reject) {
+    require('crypto').randomBytes(size/2, function(err, buffer) {
+      if (err) {
+        return reject(new Error("UPPPPPPPPS"))
+      }
+      let secureHex = buffer.toString('hex');
+      resolve(secureHex);
 });
+})
 
+
+
+
+//console.log(myPromise(2).then(x=>console.log(x)));
 exports.makeSkeleton=makeSkeleton;
+exports.myPromise=myPromise;
