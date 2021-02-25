@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import "core-js/proposals/promise-any";
+
 fetch("https://api.chucknorris.io/jokes/random")
 .then(res=>res.json())
 .then(data=>console.log(data.value));
