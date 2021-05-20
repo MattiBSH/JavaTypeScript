@@ -134,3 +134,69 @@ https://github.com/MattiBSH/JavaTypeScript/blob/master/Week3/fetchingpromises.js
 
 
 Til den endelige eksamen har jeg nok bedre eksempler, men ligenu er det her nok meget godt.
+
+
+Period 2
+
+Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using, for example, Java/JAX-RS/Tomcat
+Javascript has a very easy setup because primarily npm. Node.js is non blocking which makes for faster systems. 
+I think that node has.
+better efficiency and overall developer productivity 
+Everything seems easier when writing Node, this might be because it keeps getting updated and new features like async await makes life much easier as a developer.
+speed and performance (it is always non blocking)
+a huge number of free tools (Just use npm and you got everything you need, well almost)
+You get to use Visual Studio which is a lot better than netbeans in my opinion … better debug tool for example but much more than just that.
+
+Cons/pros for Java/JAX-RS/Tomcat
+
+1 I guess it's untested, but can you really say that now or is that just becoming the excuse to still keep using old technology. 
+
+2 If it was not for react native i would say that it makes it easier to develop an app version, but because of react native it really doesn’t. Don’t really know what to write here… (which might be a good thing)
+
+Explain the difference between Debug outputs and ApplicationLogging. What’s wrong with console.log(..) statements in our backend code?
+First of all console.log is very slow and makes your program slower. The debugger allows us to literally go into the function and see what happens step by step. Also strictly talking Debug outputs they only show up in development and therefore don’t hurt performance when hitting the clients.
+Demonstrate a system using application logging and environment controlled debug statements.
+Explain, using relevant examples, concepts related to testing a REST-API using Node/JavaScript/Typescript + relevant packages 
+Explain a setup for Express/Node/Test/Mongo-DB/GraphQL development with Typescript. Focus on how it uses Mongo-DB (how secret values are handled, how connections (production or test) are passed on to relevant places in code, and if use, how authentication and authorization is handled
+We use .env files to handle secure values, these values never hit GitHub because we put it in a gitignore. We have modes for development which makes it easy to debug and ensures that when hitting the client it does not slow down because of development dependencies. When online it writes logs to a document in which you can then look at on your server. Testing is easy using mocha chai supertest and noch you get everything you need to test a proper backend.
+Explain, using relevant examples, the Express concept; middleware.
+Middleware can 1 Execute any code. 2 Make changes to the request and the response objects. 3 End the request-response cycle. 4 Call the next middleware function in the stack.
+Explain, conceptually and preferably also with some code, how middleware can be used to handle problems like logging, authentication, cors and more.
+You can use middleware to handle cors, logging and authentication. 
+https://github.com/MattiBSH/JavaTypeScript/blob/master/Week%207-Cors-Logs/startcode-day2/src/app.ts 
+Explain, using relevant examples, your strategy for implementing a REST-API with Node/Express  + TypeScript and demonstrate how you have tested the API.
+I have a facade in which I communicate with the mongoDB database in my app.js I make middleware and call routes in the routes I make endpoints where I use the facade to make changes to the database. But of course i also in the app.js handle if the user calls a non existing route. 
+Explain, using relevant examples, how to test JavaScript/Typescript Backend Code, relevant packages (Mocha, Chai etc.) and how to test asynchronous code.
+NoSQL and MongoDB 
+Explain, generally, what is meant by a NoSQL database.
+That it does not use sql. It has no relations.
+Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
+Pros
+1 Unlike rational database management model that is difficult to scale out when it come to commodity clusters NoSQL models make use of new nodes which makes them transparent for expansion. The model is designed to be used even with low cost hardwares. In this current world where outward scalability is replacing upwards scalability, NoSQL models are the better option.
+2 Given the fact that transaction rates are rising due to recognition, huge volumes of data need to be stored. While rational models have grown to meet this need it is illogical to use such models to store such large volumes of data. However these volumes can easily be handled by NoSQL models
+3 The best rational models need the service of an expert to design, install and maintain. However, NoSQL models need much less expert management as it already has auto repair and data distribution capabilities
+cons
+1 Rational models have been around for some time now compared to NoSQL models and as a result they have grown to be more functional and stable systems over the years.
+ Explain about indexes in MongoDB, how to create them, and demonstrate how you have used them.
+Indexes are special data structures that store a small portion of the collection's data set in an easy to traverse form. The index stores the value of a specific field or set of fields, ordered by the value of the field. We have used them to get data from the database.
+
+Demonstrate, using your own code samples, how to perform all CRUD operations on a MongoDB
+Like this : https://github.com/MattiBSH/JavaTypeScript/blob/master/startcode/src/facades/friendFacade.ts 
+Demonstrate how you have set up sample data for your application testing
+Like this : https://github.com/MattiBSH/JavaTypeScript/blob/master/startcode/test/friendFacadeTest.ts 
+Explain the purpose of mocha, chai, supertest and nock, which you should have used for your testing
+nock – “Nock is an HTTP mocking and expectations library for Node.js. Nock can be used to test modules that perform HTTP requests in isolation.”
+Supertest – “High-level abstraction module for testing HTTP”
+Mocha – “Mocha is a simple, flexible, fun JavaScript test framework for node.js and the browser”
+chai – “Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.”
+Explain, using a sufficient example, how to mock and test endpoints that relies on data fetched from external endpoints
+Like this : https://github.com/MattiBSH/JavaTypeScript/blob/master/startcode/whattodotest.ts 
+Explain, using a sufficient example a strategy for how to test a REST API. If your system includes authentication and roles explain how you test this part.  
+Explanation: You can set the authentication in the test with using chai and supertest it is easy to see if what you get is what you want, you just have to ensure that you use no other facade methods. By standing by this principle we have uncorrupted tests, that can be trusted to test the methods without influence from the other methods.
+Like this : https://github.com/MattiBSH/JavaTypeScript/blob/master/startcode/test/friendEndpointsTest.ts 
+Explain, using a relevant example, a full JavaScript backend including relevant test cases to test the REST-API (not on the production database)
+Explanation: A JavaScript Backend consists primarily of a DB, A facade, middleware and routes. However it of course also has a DB connector, tests for facade and endpoints. 
+Link: https://github.com/MattiBSH/JavaTypeScript/tree/master/startcode  
+
+Changes will come to this before the exam but as of now it is the best I can do. 
+
